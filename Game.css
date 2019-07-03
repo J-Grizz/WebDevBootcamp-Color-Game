@@ -1,0 +1,97 @@
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #232323;
+  font-family: "Raleway", sans-serif;
+}
+
+/* Header main style*/
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 200px;
+  background-color: rgb(58, 122, 168);
+  transition: all 0.6s;
+}
+
+header h1,
+header h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: white;
+  margin: 0px;
+  font-weight: normal;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+}
+
+#topTit {
+  margin-top: 40px;
+}
+
+#botTit {
+  margin-bottom: 35px;
+  margin-top: 10px;
+}
+
+/* Options bar main style */
+#options {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: rgb(58, 122, 168);
+}
+
+button {
+  border: none;
+  background: none;
+  height: 100%;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: rgb(58, 122, 168);
+  transition: all 0.3s;
+  outline: none;
+}
+
+button:hover {
+  color: white;
+  background-color: rgb(58, 122, 168);
+}
+
+#message {
+  width: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+/* Grid of colors main style */
+main {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.square {
+  width: 30%;
+  padding-bottom: 30%;
+  float: left;
+  margin: 1.66%;
+  border-radius: 5%;
+  transition: all 0.6s;
+}
+
+/* button hover effect */
+.selected {
+  background-color: rgb(58, 122, 168);
+  color: white;
+}
