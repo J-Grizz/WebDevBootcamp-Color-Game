@@ -13,19 +13,23 @@
   <body>
 
     <header>
-      <h3 id="topTit">THE GREAT</h3>
+      <h3 id="top-tit">THE GREAT</h3>
       <h1>RGB(x, y, z)</h1>
-      <h3 id="botTit">GUESSING GAME</h3>
+      <h3 id="bot-tit">GUESSING GAME</h3>
     </header>
 
     <div id="options">
       <button id="refresh" class="option">New Colors</button>
       <span id="message" class="option"></span>
-      <button class="mode">Easy</button>
-      <button class="mode">Hard</button>
+      <button data-squares="3" class="mode option">Easy</button>
+      <button data-squares="6" class="mode option">Medium</button>
+      <button data-squares="9" class="mode option">Hard</button>
     </div>
 
     <main>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
       <div class="square"></div>
       <div class="square"></div>
       <div class="square"></div>

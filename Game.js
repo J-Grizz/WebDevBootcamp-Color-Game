@@ -1,14 +1,15 @@
-//defining all variables
-var numSqures = 6;
-var colors = [];
-var toGuess;
 //getting all DOM
-var squares = document.querySelectorAll(".square");
-var guess = document.querySelector("header h1");
-var message = document.querySelector("#message");
-var background = document.querySelector("header");
-var newColors = document.querySelector("#refresh");
-var mode = document.querySelectorAll(".mode");
+let squares = document.querySelectorAll(".square");
+let newColors = document.querySelector("#refresh");
+let background = document.querySelector("header");
+let message = document.querySelector("#message");
+let guess = document.querySelector("header h1");
+let modes = document.querySelectorAll(".mode");
+//defining other variables
+const backgroundGradient = "linear-gradient(137.9deg, rgba(78, 156, 226, 1) 7.8%, rgba(62, 146, 69, 1) 16%, rgba(251, 220, 23, 1) 32.7%, rgba(242, 160, 35, 1) 50.4%, rgba(253, 12, 12, 1) 71.5%, rgba(192, 26, 129, 1) 83.1%)";
+let numSqures = 6;
+let colors = [];
+let toGuess;
 
 //setting the color to guess
 guess.textContent = toGuess;
@@ -20,20 +21,15 @@ init();
 
 function init() {
   //mode listeners
-  for (var x = 0; x < mode.length; x++) {
-    mode[x].addEventListener("click", modeSetUp);
-  };
-  for (var x = 0; x < squares.length; x++) {
-    squares[x].addEventListener("click", playGame);
-  };
+  modes.forEach(mode => mode.addEventListener("click", modeSetUp));
+  squares.forEach(square => square.addEventListener("click", playGame));
   reset();
 }
 
 function modeSetUp() {
-  mode[0].classList.remove("selected");
-  mode[1].classList.remove("selected");
+  modes.forEach(mode => mode.classList.remove("selected"));
   this.classList.add("selected");
-  this.textContent === "Easy" ? numSqures = 3 : numSqures = 6;
+  numSqures = this.dataset.squares;
   reset();
 }
 
@@ -41,23 +37,15 @@ function modeSetUp() {
 function playGame() {
   var guessed = this.style.backgroundColor;
   if (guessed === toGuess) {
-    message.textContent = "Correct!";
-    changeColors(toGuess);
-    background.style.backgroundColor = toGuess;
+    squares.forEach(square => square.style.backgroundColor = toGuess);
+    background.style.background = toGuess;
     newColors.textContent = "Play Again?"
+    message.textContent = "Correct!";
   } else {
     this.style.backgroundColor = "#232323";
-    message.textContent = "Try Again"
-  };
+    message.textContent = "Try Again";
+  }
 }
-
-
-//changes colors for specified ammount of squares
-function changeColors(color) {
-  for (var x = 0; x < squares.length; x++) {
-    squares[x].style.backgroundColor = color;
-  };
-};
 
 //generates a random number
 function pickColor() {
@@ -89,7 +77,7 @@ function reset() {
   guess.textContent = toGuess;
   newColors.textContent = "New Colors";
   message.textContent = "";
-  background.style.backgroundColor = "rgb(58, 122, 168)";
+  background.style.background = backgroundGradient;
   for (var x = 0; x < squares.length; x++) {
     if (colors[x]) {
       squares[x].style.display = "block";
